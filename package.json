@@ -9,7 +9,7 @@
     "url": "https://github.com/IBM/watson-discovery-news.git"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "node --max_old_space_size=256 app.js",
     "start:watch": "nodemon app.js",
     "bootstrap": "cp env.sample .env",
     "test": "jest",
@@ -41,8 +41,11 @@
     "shrinkwrap": "^0.4.0",
     "uglifyify": "^3.0.4",
     "vcap_services": "^0.2.0",
-    "watson-developer-cloud": "^3.5.3",
+    "watson-developer-cloud": "3.5.3",
     "watson-react-components": "^0.6.17"
+  },
+  "engines": {
+    "node": "8.14.1"
   },
   "babel": {
     "presets": [
@@ -62,5 +65,9 @@
   },
   "resolutions": {
     "hoek": "4.2.1"
+  },
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/"
   }
 }
